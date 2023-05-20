@@ -1,0 +1,308 @@
+<html>
+  <head>
+    <title>Q4 - CS Project</title>
+
+    <style>
+        h1, h2, h3, h4, p, a {
+          font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        .container {
+          display: flex;
+          justify-content: center; 
+          align-items: center;
+        }
+        .box {
+          background-color: white;
+          transition: width 1.5s, height 1.5s;
+          margin-right: 20px;
+          margin-bottom: 20px;
+          cursor: pointer;
+        }
+        .textBox {
+          transition: width 1.5s, height 1.5s;
+          max-width: 500px;
+          max-height: 300px;
+          margin-right: 20px;
+          margin-bottom: 20px;
+          cursor: pointer;
+          display: flex;
+          flex-direction: column;
+          background-image: url(freeform-bg-1.png);
+          background-size: 500px 300px;
+      }
+        .hiddenText {
+          display: none;
+        }
+        .hiddenText.show {
+          display: block;
+        }
+        .text {
+          color: rgb(0, 185, 218);
+          background-color: white;
+        }
+        .text2 {
+          color: rgb(37, 169, 221);
+        }
+      </style>
+      <script>
+        var boxData = [
+          {
+            title: "What is Electrical Engineering?",
+            hiddenText: [
+              "Electrical Engineering is one of the more recent branches of engineering.",
+              "It is concerned with the design, study, and application of devices, equipment, and systems that use electricity, electronics, and electromagnetism."
+            ]
+          },
+          {
+            title: "When did Electrical Engineering emerge as a discipline?",
+            hiddenText: [
+              "Electrical Engineering dates back to the late 19th century, after the commercialization of the electric telegraph, telephone, and generation and delivery of electrical power.",
+              "Electrical engineering may be said to have emerged as a discipline in 1864 when the Scottish physicist James Clerk Maxwell summarized the basic laws of electricity in mathematical form and showed that radiation of electromagnetic energy travels through space at the speed of light."
+            ]
+          },
+          {
+            title: "What was the 1st Practical Application of Electrical Engineering?",
+            hiddenText: [
+              "The first practical application of electrical engineering was the telegraph, invented by Samuel F.B. Morse in 1837."    
+            ]
+          },
+          {
+            title: "Who are the most prominent pioneers of Electrical Engineering?",
+            hiddenText: [
+            "Some of the most prominent pioneers in electrical engineering include Thomas Edison (electric light bulb), George Westinghouse (alternating current), Nikola Tesla (induction motor), Guglielmo Marconi (radio), and Philo T. Farnsworth (television).", 
+            "These innovators turned ideas and concepts about electricity into practical devices and systems that ushered in the modern age."
+            ]
+          },
+        ];  
+
+        function showText(element) {
+          var hiddenTextElements = element.getElementsByClassName('hiddenText');
+          var hiddenTextArray = Array.from(hiddenTextElements);
+  
+          hiddenTextArray.forEach(function (hiddenText) {
+            hiddenText.classList.toggle('show');
+          });
+          element.onclick = null;
+        }
+        
+        function showTextWithArrays(outputId) {
+          var output = document.getElementById(outputId);
+          var dataIndex;
+          
+          if (outputId === "output") {
+            dataIndex = 0; 
+          } else {
+            dataIndex = parseInt(outputId.replace("output", "")) - 1; 
+          }
+
+          var hiddenText = boxData[dataIndex].hiddenText;
+          output.innerHTML = ""; 
+
+          for (var i = 0; i < hiddenText.length; i++) {
+            var paragraph = document.createElement("p");
+            paragraph.textContent = hiddenText[i];
+            output.appendChild(paragraph);
+          }
+        }
+    </script>      
+  </head>
+  <body style="background-image: url(electrical-eng.png);">
+    <header style="background-color: rgb(17, 67, 160); position: fixed; top: 0; width: 100%; height: 5%;">
+      <nav>
+        <ul style="font-size: 30px; list-style-type: none; margin: 0; padding: 0;">
+          <li style="float: left;">
+            <a href="electrical-engineering.html">About Electrical Engineering</a> &nbsp; &nbsp;
+          </li>
+          <li style="float: left;">
+            <a href="forms.html">Any Questions?</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <br><br><br>
+    <div class="box" onclick="showText(this)" style="text-align: center;">
+        <h1>What is Electrical Engineering?</h1>
+        <p class="hiddenText"> by Chloee Mherrionette G. Riaz</p>
+        <p class="hiddenText"> Grade 9 - Sodium</p>
+      </div> &nbsp; &nbsp;
+      <div class="container">
+        <div class="box" onclick="showTextWithArrays('output1')">
+          <h2>What is Electrical Engineering?</h2>
+          <div id="output1"></div>
+        </div> &nbsp; &nbsp;
+        
+        <div class="box" onclick="showTextWithArrays('output2')">
+          <h2>When did Electrical Engineering emerge as a discipline?</h2>
+          <div id="output2"></div>
+        </div> &nbsp; &nbsp;
+        
+        <div class="box" onclick="showTextWithArrays('output3')">
+          <h2>What was the 1st Practical Application of Electrical Engineering?</h2>
+          <div id="output3"></div>
+        </div> &nbsp; &nbsp;
+        
+        <div class="box" onclick="showTextWithArrays('output4')">
+          <h2>Who are the most prominent pioneers of Electrical Engineering?</h2>
+          <div id="output4"></div>
+        </div> &nbsp; &nbsp;        
+      </div>
+      &nbsp; &nbsp;
+      <div style="background-color: white; width: 100%;">
+        <p> According to the U.S. Bureau of Labor Statistics, "<em class="text2">Electrical engineers design, develop, test and supervise</em> the <em class="text2">manufacturing of electrical equipment</em>, such as electric motors, radar and navigation systems, communications systems and power generation equipment." </p>
+        <p> If it's a <em class="text2">real-world gadget that generates, conducts, or utilizes electricity</em>, it was most likely built by an electrical engineer. </p>
+        <p> Electrical engineers of today create electrical devices and systems by combining fundamental components such as <em class="text2">wires, coils, magnets, batteries, switches, resistors, capacitors, inductors, diodes, and transistors</em>. These fundamental components are <em style="color: rgb(37, 102, 221);">used in nearly all electrical and electronic devices</em>, from power plant generators to microprocessors in your phone. </p>
+      </div> <br> <br> <br>
+      <div style="background-color: white; width: 100%;"> 
+        <br>
+        <h2 style="text-align: center;">Skills required for every Electrical Engineer</h2>
+        <br>
+      </div> 
+      <div class="container" style="background-color: white; display: flex;">
+        <br>
+        <div style="display: flex; flex-direction: column;"> 
+          <div class="textBox" onclick="showText(this)">
+            <h3>Problem solving</h3>
+            <p class="hiddenText"> In electrical engineering, you are often required to <b class="text">think logically</b> and <b class="text">apply a particular rule or concept to a problem</b> in order to solve it. </p>
+          </div> 
+    
+          <div class="textBox" onclick="showText(this)">
+            <h3>Organization</h3>
+            <p class="hiddenText"> The ability to organize and manage your time is important for an electrical engineer, as <b class="text">much of your work will likely be time-sensitive or project-based</b>, regardless which area of engineering you specialize in. </p>
+            <p class="hiddenText"> It's not just in the workplace that these skills will come in handy, though. <b class="text">Being able to manage it all and stay on top</b> — especially during exam season — <b class="text">will stand you in good stead</b>. </p>
+          </div> 
+        </div>
+        <div> 
+          <div class="textBox" onclick="showText(this)">
+            <h3>Critical thinking</h3>
+            <p class="hiddenText"> Possessing the ability to <b class="text">approach things differently</b> or <b class="text">take a different view to the norm</b> can make a big difference when you’re trying to achieve a certain goal with your project. <br> This includes <b class="text">analyzing the strengths and weaknesses of the project or the problem</b> in front of you, and <b class="text">offering alternative solutions, approaches and conclusions</b> — all key aspects of critical thinking.</p>
+          </div> 
+
+          <div class="textBox" onclick="showText(this)">
+            <h3>In-depth Mathematical Knowledge</h3>
+            <p class="hiddenText"> Electrical engineering students often struggle because they have a weak mathematical foundation. So if you want to take electrical engineering as a career, <b class="text">focus on calculus at school</b> and <b class="text">take as many maths-related electives as possible</b>. </p>
+          </div> 
+        </div>
+        <div>
+          <div class="textBox" onclick="showText(this)">
+            <h3>Basic circuit knowledge</h3>
+            <p class="hiddenText"> <b class="text">Electrical engineering is an extremely challenging field</b>, especially when <b class="text">dealing with massive installations (such as energy grids)</b> or <b class="text">even highly modern pieces of tiny hardware (e.g. the ones used in smartphones)</b>. As a result, if you wish to comprehend it all, you must first have extensive knowledge of basic circuit design. </p>
+          </div> 
+
+          <div class="textBox" onclick="showText(this)">
+            <h3>Creative thinking</h3>
+            <p class="hiddenText"> Engineers are not just problem solvers, but also <b class="text">trailblazers</b>. This is particularly true in the commercial sector, where electronics titans are continuously striving to produce new and innovative technologies; it is also a crucial trait that top engineering schools look for in potential applicants. </p>
+            <p class="hiddenText"> Remember: <b class="text">you might have all the information in the world, but if you don't know how to be inventive and explore fresh opportunities with it, you'll be left behind.</b> </p>
+          </div>
+        </div>
+        <div>
+          <div class="textBox" onclick="showText(this)">
+            <h3>Communication</h3>
+            <p class="hiddenText"> Communication skills are a crucial component of the profession, whether it's <b class="text">understanding a client's goals and objectives</b>, <b class="text">working in teams on a project to build or enhance a piece of hardware</b>, or <b class="text">interacting with other departments and stakeholders</b>. </p>
+          </div>
+
+          <div class="textBox" onclick="showText(this)">
+            <h3>Programming</h3>
+            <p class="hiddenText"> Although coding is more essential in some fields of electrical engineering than others, it is still a highly beneficial aptitude to have, especially when <b class="text">dealing with low-level embedded devices or analyzing data</b>. </p>
+          </div>
+        </div>
+        <div>
+          <div class="textBox" onclick="showText(this)">
+            <h3>Electronic troubleshooting</h3>
+            <p class="hiddenText"> Electronic troubleshooting is the <b class="text">identification, location, and correction of errors using measurement and diagnostic equipment</b>. The amount of complexity varies based on the equipment you need to work with and repair; in certain circumstances, you may need to test each gadget component separately to ensure that everything functions correctly. </p>
+            <p class="hiddenText"> Knowing how to <b class="text">analyze, approach, and repair electrical circuits is the bread and butter of this trade</b>, thus this is a talent that must be honed in order to advance in your career. </p>
+          </div> 
+
+          <div class="textBox" onclick="showText(this)">
+            <h3>Leadership</h3>
+            <p class="hiddenText"> As you develop in your career and pursue executive opportunities in your area, having <b class="text">solid project management abilities</b> and <b class="text">the capacity to supervise a team, if not an entire organization</b>, may be required. </p>
+          </div>
+        </div>
+      </div>
+      <br> <br> <br> 
+      <div style="background-color: white; width: 100%;" onclick="showText(this)"> 
+        <br>
+        <h2 style="text-align: center;">How much does an Electrical Engineer make in Philippines?</h2>
+        <p class="hiddenText"> On average, an electrical engineer's salary is ₱22,281 per month in the Philippines.</p>
+        <br>
+      </div> 
+
+      <div style="background-color: white; width: 100%;" onclick="showText(this)">  
+        <br>
+        <h3 style="text-align: center;">Here are the top companies for Electrical Engineers in Philippines</h3>
+        <br>
+      </div> 
+      <div class="container" style="background-color: white;" onclick="showText(this)">
+        <div class="container" style="background-color: white; display: flex;" onclick="showText(this)">
+          <div class="textBox" onclick="showText(this)"> 
+            <h4> SPD Jobs Inc. </h4>
+            <p class="hiddenText"> Average Salary: ₱50,003 per month </p>
+          </div> <div class="textBox" onclick="showText(this)">  
+            <h4> Sinobest Refrigeration Inc. </h4>
+            <p class="hiddenText"> Average Salary: ₱47,072 per month </p>
+          </div> <div class="textBox" onclick="showText(this)"> 
+            <h4> Filipinas Dravo Corporation </h4>
+            <p class="hiddenText"> Average Salary: ₱34,614 per month </p>
+          </div> <div class="textBox" onclick="showText(this)"> 
+            <h4> Manila Electric Company </h4>
+            <p class="hiddenText"> Average Salary: ₱31,363 per month </p>
+          </div> <div class="textBox" onclick="showText(this)"> 
+            <h4> LBP Service Corporation </h4>
+            <p class="hiddenText"> Average Salary: ₱30,130 per month </p>
+          </div>
+        </div>
+      </div>
+
+      <div style="background-color: white; width: 100%;" onclick="showText(this)">  
+        <br>
+        <h3 style="text-align: center;">Here are the highest paying cities for Electrical Engineers near Philippines</h3>
+        <br>
+      </div> 
+      <div class="container" style="background-color: white; display: flex;">
+        <div> 
+          <div class="textBox" onclick="showText(this)"> 
+            <h4> Taguig </h4>
+            <p class="hiddenText"> Average Salary: ₱26,107 per month </p>
+          </div> <div class="textBox" onclick="showText(this)"> 
+            <h4> Muntinlupa </h4>
+            <p class="hiddenText"> Average Salary: ₱25,953 per month </p>
+          </div> <div class="textBox" onclick="showText(this)"> 
+            <h4> Manila </h4>
+            <p class="hiddenText"> Average Salary: ₱23,931 per month </p>
+          </div>
+        </div>
+        <div> 
+          <div class="textBox" onclick="showText(this)"> 
+            <h4> Makati </h4>
+            <p class="hiddenText"> Average Salary: ₱23,759 per month </p>
+          </div> <div class="textBox" onclick="showText(this)"> 
+            <h4> Parañaque </h4>
+            <p class="hiddenText"> Average Salary: ₱23,339 per month </p>
+          </div> <div class="textBox" onclick="showText(this)"> 
+            <h4> Pasig </h4>
+            <p class="hiddenText"> Average Salary: ₱22,989 per month </p>
+          </div>
+        </div>
+        <div> 
+          <div class="textBox" onclick="showText(this)"> 
+            <h4> Biñan City </h4>
+            <p class="hiddenText"> Average Salary: ₱22,206 per month </p>
+          </div> <div class="textBox" onclick="showText(this)"> 
+            <h4> Santo Tomas </h4>
+            <p class="hiddenText"> Average Salary: ₱20,870 per month </p>
+          </div> <div class="textBox" onclick="showText(this)"> 
+            <h4> Quezon City </h4>
+            <p class="hiddenText"> Average Salary: ₱20,804 per month </p>
+        </div>
+      </div>
+      </div> <br> <br>
+      <div class="container"> 
+        <button style="width: 200px; height: 100px;">
+          <a href="referencelist.html" style="font-size: 25px;"> Here are the links I used for reference </a>
+        </button>
+      </div> <br> <br> <br> <br> <br> <br>
+    <footer style="background-color: rgb(17, 67, 160); color: (55, 255, 255); position: fixed; bottom: 0; width: 100%;">
+        <p> Contact me here: </p>
+        <a href="https://web.facebook.com/chloeemherrionette.gonzaga/" style="color: #4267B2; font-size: 30px"> Facebook </a>&nbsp; &nbsp;
+    </footer>
+  </body>
+</html>

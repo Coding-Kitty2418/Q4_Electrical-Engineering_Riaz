@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Q4 - CS Project</title>
+    <style>
+      h3, a {
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      }
+      button {
+        max-width: 20%;
+        max-height: 16%;
+        font-size: medium;
+      }
+      .one.clicked, .one.clicked:hover {
+        background-color: rgb(255, 98, 98);
+      }
+      .two.clicked, .two.clicked:hover {
+        background-color: rgb(255, 205, 68);
+      }
+      .three.clicked, .three.clicked:hover {
+        background-color: rgb(42, 231, 52);
+      }
+      .four.clicked, .four.clicked:hover {
+        background-color: rgb(39, 100, 233);
+      }
+      .five.clicked, .five.clicked:hover {
+        background-color: rgb(158, 50, 230);
+      }
+    </style>
+    <script>
+      window.onload = function() {
+        var buttonElements = document.querySelectorAll('button.one a, button.two a, button.three a, button.four a, button.five a');
+
+        buttonElements.forEach(function(buttonElement) {
+          buttonElement.addEventListener('click', function() {
+            buttonElement.parentNode.classList.add('clicked');
+
+            sessionStorage.setItem('clickedButton', buttonElement.parentNode.className);
+          });
+
+          var storedButtonClass = sessionStorage.getItem('clickedButton');
+          if (buttonElement.parentNode.classList.contains(storedButtonClass)) {
+            buttonElement.parentNode.classList.add('clicked');
+          }
+        });
+      };
+    </script>
+  </head>
+  <body style="background-image: url(electrical-eng3.png);">
+    <header style="background-color: rgb(17, 67, 160); position: fixed; top: 0; width: 100%; height: 5%;">
+      <nav>
+        <ul style="font-size: 30px; list-style-type: none; margin: 0; padding: 0;">
+          <li style="float: left;">
+            <a href="electrical-engineering.html">About Electrical Engineering</a> &nbsp; &nbsp;
+          </li>
+          <li style="float: left;">
+            <a href="forms.html">Any Questions?</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <br> <br> <br>
+    <div style="background-color: white; color: black;">
+      <h3> Reference List: </h3>
+      <button class="one">
+        <a href="https://www.twi-global.com/technical-knowledge/faqs/what-is-electrical-engineering"> What is Electrical Engineering? (Definition, Types and Job Salary) - TWI </a>
+      </button> 
+      <button class="two">
+        <a href="https://www.livescience.com/47571-electrical-engineering.html"> What Is Electrical Engineering? | Live Science </a>
+      </button> 
+      <button class="three">
+        <a href="https://www.britannica.com/technology/electrical-and-electronics-engineering"> Electrical and electronics engineering | Types & Facts | Britannica </a>
+      </button> 
+      <button class="four">
+        <a href="https://www.careeraddict.com/top-10-skills-needed-for-a-job-in-electrical-engineering"> The 10 Key Skills You Need to Become an Electrical Engineer </a>
+      </button> 
+      <button class="five">
+        <a href="https://ph.indeed.com/career/electrical-engineer/salaries"> Electrical engineer salary in Philippines </a>
+      </button>
+      <br><br><br>
+    </div>
+  </body>
+</html>
